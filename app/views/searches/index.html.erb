@@ -1,0 +1,46 @@
+<h1>Flight Search</h1>
+<nav>
+  <ul class="nav navbar-nav navbar-right">
+<% if logged_in? %>
+      <li><%= link_to "Profile", current_user %></li>
+      <li><%= link_to "Log out", logout_path, method: :delete %></li>
+<% else %>
+      <li><%= link_to "Sign up", signup_path %></li>
+      <li><%= link_to "Sign in", login_path %></li>
+<% end %>
+  </ul>
+</nav>
+
+<%= form_tag("/search", method: "get") do %>
+  <%= label_tag(:q, "Origin Airport:") %>
+  <%= text_field_tag(:q) %>
+  <%= label_tag(:q, "Start Date:") %>
+  <%= text_field_tag(:q) %>
+  <%= label_tag(:q, "Return Date:") %>
+  <%= text_field_tag(:q) %>
+
+  <%= submit_tag("Search") %>
+<% end %>
+  <!--<form id="orginForm" action="/" method="post" >
+    <div id="originDiv" class="form-group">
+      <label for="origin">Origin</label>
+      <input id="origin" name="origin" placeholder="City/Airport" required value="">
+
+
+      </input>
+    </div>
+    <div class="row">
+      <div class="form-group form-inline col-6">
+        <label for="beginningDate" >Beginning Date </label>
+        <input id="beginningDate"  name="beginningDate" mindate="" placeholder="Start Date"></input>
+      </div>
+      <div class="form-group form-inline col-6">
+        <label for="endDate">End Date </label>
+        <input id="endDate"  name="endDate" placeholder="End Date"></input>
+      </div>
+    </div>
+    <div class="col-sm-4 form-group">
+      <button id="orginFormSubmit" type="Submit" class="btn btn-primary">Submit</button>
+    </div>
+  </form>-->
+
